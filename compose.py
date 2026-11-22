@@ -8,7 +8,7 @@ field (see ~/workspace/makefun/news21-analysis/field-analysis.md):
 masthead + huge serif date + subhead + 6-figure numbers strip +
 coloured segmented region bar + 3 large illustrated leads + 10
 illustrated cards with banner kickers + data chips + CONFIRMED/CLAIM/
-REPORTED tag chips + dark navy map with numbered pins + 22 briefs +
+REPORTED tag chips + pale map with numbered pins + 22 briefs +
 boxed DATE CHECK + sources footer.
 """
 
@@ -23,7 +23,7 @@ FONTS = os.path.join(HERE, "fonts")
 PAPER = (247, 243, 232)
 INK = (17, 17, 17)
 NAVY = (20, 33, 61)
-NAVY_MAP = (18, 30, 56)
+SEA_PALE = (208, 222, 230)  # pale sea, top-3 consensus (v2)
 RED = (179, 39, 30)
 RED_DARK = (150, 28, 22)
 CREAM_PANEL = (250, 246, 236)
@@ -38,12 +38,12 @@ TEAL = (14, 124, 123)
 
 REGION_COLORS = [
     ("EUROPE", 6, BLUE),
-    ("ASIA", 10, RED),
-    ("MIDDLE EAST", 4, GOLD),
+    ("ASIA", 9, RED),
+    ("MIDDLE EAST", 5, GOLD),
     ("AFRICA", 1, GREEN),
     ("AMERICAS", 10, PURPLE),
-    ("OCEANIA", 3, TEAL),
-    ("GLOBAL", 1, GREY),
+    ("OCEANIA", 2, TEAL),
+    ("GLOBAL", 2, GREY),
 ]
 
 
@@ -179,26 +179,29 @@ CARDS = [
          data="NO DETAILS YET", tag="REPORTED",
          head="Trump vows tax on data centres abroad",
          deck="\u201cTremendous\u201d penalty; no details yet. (AP)"),
-    dict(num=8, place="BEIJING", beat="DIPLOMACY", kicker="CHINA\u2013JAPAN",
-         data="TAIWAN WORDS", tag="OFFICIAL",
-         head="China tells Japan to \u201ccorrect\u201d Taiwan words",
-         deck="Tokyo says its stance is unchanged. (Ministry, AFP)"),
+    dict(num=8, place="MERCURY", beat="SPACE", kicker="MERCURY: ORBIT",
+         data="19:24 CET", tag="CONFIRMED",
+         head="BepiColombo reaches Mercury after eight years",
+         deck=("37-minute burn puts it in orbit; third mission to Mercury. "
+               "(ESA, AP)")),
     dict(num=9, place="DAVAO", beat="AVIATION", kicker="DAVAO: 146 SAFE",
          data="146 SAFE", tag="CONFIRMED",
          head="Jet lands safely after engine fire alert",
          deck="Air Niugini 767 diverts after midnight. (Airline, AP)"),
-    dict(num=10, place="CANBERRA", beat="DIPLOMACY", kicker="CANBERRA: AI",
-         data="11-DAY TRIP", tag="OFFICIAL",
-         head="Australia and China agree to AI talks",
-         deck="Albanese ends an 11-day trip. (ABC)"),
+    dict(num=10, place="BAHRAIN", beat="WAR", kicker="BAHRAIN: STRIKE",
+         data="IRGC ATTACK", tag="REPORTED",
+         head="Iran strikes US bases in Bahrain",
+         deck=("IRGC claims two Patriot radars hit; Bahrain: fire, no "
+               "injuries. (Reuters)")),
     dict(num=11, place="WORLD", beat="MARKETS", kicker="BITCOIN: $58,983",
          data="$58,983", tag="CONFIRMED",
          head="Bitcoin trades below $59,000 on Saturday",
          deck="Down 3.9% in 24 hours; ether $1,619. (CoinGecko)"),
-    dict(num=12, place="LAS VEGAS", beat="FORMULA ONE", kicker="RUSSELL: P1",
-         data="1:34.041", tag="CONFIRMED",
-         head="Russell fastest in final Las Vegas practice",
-         deck="1:34.041 in a damp, messy session. (Formula 1)"),
+    dict(num=12, place="LAS VEGAS", beat="FORMULA ONE", kicker="VERSTAPPEN: POLE",
+         data="1:34.151", tag="CONFIRMED",
+         head="Verstappen inherits Vegas pole after penalty",
+         deck=("Antonelli fastest (1:33.893) but drops five places. "
+               "(Formula 1)")),
     dict(num=13, place="WELLINGTON", beat="CRICKET", kicker="RAHUL: 124*",
          data="124*", tag="CONFIRMED",
          head="Rahul hits a century against New Zealand",
@@ -220,32 +223,32 @@ BRIEFS = [
     (25, "Vancouver", "Canada rests defence in youth climate trial (AFP)"),
     (26, "Pyongyang", "Kim tours factories after no Trump meeting (AFP)"),
     (27, "Sejong", "Freight train derails; no one hurt (Korea Herald)"),
-    (28, "Taipei", "Budget and a cash payout are passed (Taipei Times)"),
+    (28, "Gulf of Finland", "Drones hit Russian cargo ship Sparta II; crew evacuated (Reuters)"),
     (29, "Bangkok", "Six-point plan on arsenic in two rivers (The Nation)"),
     (30, "New Delhi", "Pakistani minister joins SCO forum in India (Dawn)"),
     (31, "Eastern India", "Rain alerts as Akvan's remnants move inland (ETV)"),
     (32, "Myanmar", "Rights groups urge sanctions after court ruling (AP)"),
-    (33, "Port Louis", "African rating agency talks to 15 states (Al Jazeera)"),
+    (33, "Guasave", "Mexico captures FBI most-wanted 'Chapo Isidro'; 11 dead (Reuters)"),
     (34, "Melbourne", "Cummins keeps the Australian captaincy (ABC)"),
-    (35, "Las Vegas", "Verstappen sent to stewards after contact (Autosport)"),
+    (35, "Turin", "Zverev beats Medvedev 7-6(0), 6-4 in semi; final vs Alcaraz (ATP Tour)"),
 ]
 
 DATE_CHECK_L1 = ("DATE CHECK \u2014 Left out as Friday 20 November's news: Wall Street's "
-                 "fall into a correction, the Russian barrage that hit Kyiv's bridges, "
-                 "the missile that landed in Poland, the UK\u2013EU deal and Cyclone "
-                 "Akvan's landfall.")
-DATE_CHECK_L2 = ("Older still: the ICJ Myanmar ruling and the Shenzhen declaration "
-                 "(Thu 19), Anthropic's $81.3bn IPO (Wed 18). Not yet when drawn: "
-                 "BepiColombo's Mercury orbit (19:24 CET tonight), a final COP31 text, "
-                 "Las Vegas GP qualifying.")
+                 "correction, the Kyiv bridges barrage, the Poland missile, "
+                 "the UK\u2013EU deal, Cyclone Akvan's landfall, the China\u2013Japan "
+                 "Taiwan row, the Canberra AI talks.")
+DATE_CHECK_L2 = ("Older: ICJ Myanmar ruling + Shenzhen declaration (Thu 19), Anthropic "
+                 "IPO (Wed 18). Not yet: a final COP31 text, the Las Vegas GP "
+                 "race, the ATP Finals final.")
 
 TIMELINE = ("SATURDAY, HOUR BY HOUR \u2014 00:08 Davao lands \u00b7 00:09 Peru quake "
             "\u00b7 01:53 Riyadh alert \u00b7 02:47 India 344/2 \u00b7 05:37 Korea derail "
-            "\u00b7 19:24 Mercury due")
+            "\u00b7 19:24 Mercury orbit")
 
 FOOTER_L = ("Every story here happened, or was first reported, on Saturday 21 "
             "November 2026. Officials' counts and claims are attributed.")
-FOOTER_R = "Sources named beside each story \u00b7 Original drawings"
+FOOTER_R = ("HOW WE CHECKED \u2014 CONFIRMED = 2+ outlets \u00b7 OFFICIAL = on the record "
+            "\u00b7 REPORTED = one outlet \u00b7 CLAIM = one side's account")
 
 # map pins: (story num, lon, lat, dx, dy) for stories 1-13 (11 = Bitcoin, everywhere)
 PINS = [
@@ -256,9 +259,8 @@ PINS = [
     (5, 56.3, 26.5, 10, -2),
     (6, 51.4, 35.7, 8, -8),
     (7, -77.0, 38.9, 0, 0),
-    (8, 116.4, 39.9, 0, 0),
     (9, 125.6, 7.1, 0, 6),
-    (10, 149.1, -35.3, 0, 0),
+    (10, 50.5, 26.2, -20, 18),  # Bahrain, clear of pin 5 (Hormuz) and pin 2 (Riyadh)
     (12, -115.1, 36.2, -8, 0),
     (13, 174.8, -41.3, 0, 0),
 ]
@@ -430,14 +432,25 @@ def card_art(d, idx, x, y, w, h):
                             fill=(90, 200, 120))
         d.ellipse([x + 148, y + 8, x + 182, y + 42], fill=RED)
         d.text((x + 156, y + 12), "%", font=bc_b(20), fill=(255, 255, 255))
-    elif idx == 4:  # China + Japan flags
-        d.rectangle([x, y, x + w, y + h], fill=(240, 236, 222))
-        d.rectangle([x + 16, y + 10, x + 84, y + h - 10], fill=(210, 30, 20))
-        for sx, sy in [(28, 18), (44, 16), (52, 26), (40, 32)]:
-            d.ellipse([x + sx, y + sy, x + sx + 5, y + sy + 5], fill=(250, 220, 60))
-        d.rectangle([x + 108, y + 10, x + 176, y + h - 10], fill=(255, 255, 255),
+    elif idx == 4:  # BepiColombo at Mercury: cratered planet + probe
+        d.rectangle([x, y, x + w, y + h], fill=(12, 14, 28))
+        for sx, sy in [(20, 10), (60, 22), (110, 8), (160, 16), (40, 34),
+                       (140, 30)]:
+            d.ellipse([x + sx, y + sy, x + sx + 2, y + sy + 2],
+                      fill=(255, 255, 255))
+        # Mercury, cratered grey disc
+        d.ellipse([x + 18, y + 8, x + 82, y + h - 6], fill=(168, 158, 142),
+                  outline=(120, 110, 96), width=1)
+        for cx, cy, cr in [(34, 20, 6), (58, 16, 4), (44, 34, 5), (64, 30, 3),
+                           (30, 34, 3)]:
+            d.ellipse([x + cx - cr, y + cy - cr, x + cx + cr, y + cy + cr],
+                      fill=(140, 130, 116))
+        # probe body + solar panels, approaching from the right
+        d.rectangle([x + 120, y + 20, x + 140, y + 34], fill=(200, 200, 200),
                     outline=INK, width=1)
-        d.ellipse([x + 130, y + 16, x + 154, y + 40], fill=(210, 30, 20))
+        d.rectangle([x + 96, y + 24, x + 120, y + 30], fill=(40, 80, 160))
+        d.rectangle([x + 140, y + 24, x + 164, y + 30], fill=(40, 80, 160))
+        d.line([x + 140, y + 27, x + 168, y + 27], fill=(250, 200, 60), width=2)
     elif idx == 5:  # Davao plane
         d.rectangle([x, y, x + w, y + h], fill=(150, 195, 225))
         d.ellipse([x + 16, y + 10, x + 44, y + 20], fill=(255, 255, 255))
@@ -446,16 +459,25 @@ def card_art(d, idx, x, y, w, h):
         d.polygon([(x + 52, y + 30), (x + 96, y + 30), (x + 108, y + 34),
                    (x + 60, y + 34)], fill=(255, 255, 255))
         d.rectangle([x + 40, y + h - 8, x + w - 20, y + h - 4], fill=(90, 90, 90))
-    elif idx == 6:  # Canberra building + flags
-        d.rectangle([x, y, x + w, y + h], fill=(232, 226, 205))
-        d.polygon([(x + 60, y + 12), (x + 132, y + 12), (x + 96, y + 30)],
-                  fill=(60, 90, 130))
-        d.rectangle([x + 60, y + 30, x + 132, y + h - 6], fill=(200, 190, 165),
-                    outline=INK, width=1)
-        for cx in (72, 88, 104, 120):
-            d.rectangle([x + cx, y + 36, x + cx + 6, y + h - 10], fill=INK)
-        d.rectangle([x + 12, y + 8, x + 40, y + 22], fill=(30, 60, 120))
-        d.rectangle([x + 152, y + 8, x + 180, y + 22], fill=(210, 30, 20))
+    elif idx == 6:  # Bahrain strike: night sky, base buildings, fire glow
+        d.rectangle([x, y, x + w, y + h], fill=(16, 22, 44))
+        d.ellipse([x + w - 40, y + 6, x + w - 20, y + 26],
+                  fill=(240, 230, 190))
+        # low base buildings
+        for bx, bw, bh in [(0, 52, 22), (58, 44, 30), (108, 50, 20),
+                           (164, 28, 26)]:
+            d.rectangle([x + bx, y + h - bh, x + bx + bw, y + h],
+                        fill=(10, 14, 30))
+            for wy in range(y + h - bh + 5, y + h - 4, 8):
+                for wx in range(x + bx + 5, x + bx + bw - 5, 11):
+                    d.rectangle([wx, wy, wx + 4, wy + 4], fill=(250, 210, 90))
+        # two fire bursts above the base
+        for bx, by in [(70, 14), (140, 10)]:
+            for dx, dy in [(0, 0), (9, -6), (-8, -5), (7, 6), (-7, 7)]:
+                d.line([x + bx, y + by, x + bx + dx, y + by + dy],
+                       fill=(255, 170, 40), width=2)
+            d.ellipse([x + bx - 3, y + by - 3, x + bx + 3, y + by + 3],
+                      fill=(255, 200, 80))
     elif idx == 7:  # Bitcoin chart
         d.rectangle([x, y, x + w, y + h], fill=(18, 18, 22))
         d.ellipse([x + 14, y + 8, x + 48, y + 42], fill=(245, 150, 30))
@@ -571,9 +593,9 @@ def draw_card(d, card, x, y, w, h, idx):
     fit_lines(d, card["head"], pf_bold(15), w, 2, x, ky + 14, INK, 16)
     fit_lines(d, card["deck"], nr(10.5), w, 2, x, ky + 48, INK, 12)
     tag = card["tag"]
-    tf = bc_b(9)
-    tw = int(tf.getlength(tag)) + 10
-    chip(d, x + w - tw, ky + 74, tag, tf, RED, None, outline=RED)
+    tf = bc_b(8)
+    tw = int(tf.getlength(tag)) + 8
+    chip(d, x + w - tw, ky + 70, tag, tf, RED, None, pad=4, outline=RED)
 
 
 def lonlat_to_xy(lon, lat, mx, my, mw, mh):
@@ -581,7 +603,7 @@ def lonlat_to_xy(lon, lat, mx, my, mw, mh):
 
 
 def draw_map(d, mx, my, mw, mh):
-    d.rectangle([mx, my, mx + mw, my + mh], fill=NAVY_MAP)
+    d.rectangle([mx, my, mx + mw, my + mh], fill=SEA_PALE)
     for pts in LAND.values():
         xy = [lonlat_to_xy(lon, lat, mx, my, mw, mh) for lon, lat in pts]
         d.polygon(xy, fill=TAN)
@@ -595,8 +617,9 @@ def draw_map(d, mx, my, mw, mh):
         d.text((px - tf.getlength(t) / 2, py - 7), t, font=tf,
                fill=(255, 255, 255))
     d.text((mx + 6, my + mh - 14),
-           "Pins 1\u201313 mark the pictured stories. 11 Bitcoin is everywhere.",
-           font=nr(8.5), fill=(255, 255, 255))
+           "Pins 1\u201313 mark the pictured stories. 8 is in space: Mercury. "
+           "11 Bitcoin is everywhere.",
+           font=nr(8.5), fill=INK)
 
 
 def draw_briefs(d, x, y, w):
@@ -617,11 +640,12 @@ def draw_briefs(d, x, y, w):
 def draw_date_check(d, y):
     d.rectangle([14, y, 1010, y + 32], outline=RED, width=2)
     l1 = ("DATE CHECK \u2014 Left out as Friday 20 November's news: Wall Street's "
-          "correction, the Kyiv bridges barrage, the missile in Poland, the "
-          "UK\u2013EU deal, Cyclone Akvan's landfall.")
+          "correction, the Kyiv bridges barrage, the Poland missile, the "
+          "UK\u2013EU deal, Cyclone Akvan's landfall, the China\u2013Japan Taiwan "
+          "row, the Canberra AI talks.")
     l2 = ("Older: ICJ Myanmar ruling + Shenzhen declaration (Thu 19), Anthropic "
-          "IPO (Wed 18). Not yet: BepiColombo orbit (19:24 CET), final COP31 "
-          "text, Las Vegas qualifying.")
+          "IPO (Wed 18). Not yet: a final COP31 text, the Las Vegas GP race, "
+          "the ATP Finals final.")
     f = nr(10.5)
     d.text((22, y + 4), l1, font=f, fill=INK)
     d.text((22, y + 18), l2, font=f, fill=INK)
@@ -645,9 +669,9 @@ def build(quality=82):
             idx = r * 5 + c
             draw_card(d, CARDS[idx], 14 + c * (card_w + 8),
                       462 + r * 140, card_w, card_h, idx)
-    d.text((14, 742), "WHERE IT HAPPENED", font=bc_b(12), fill=INK)
+    d.text((14, 744), "WHERE IT HAPPENED", font=bc_b(12), fill=INK)
     draw_map(d, 14, 758, 472, 200)
-    draw_briefs(d, 496, 742, 514)
+    draw_briefs(d, 496, 744, 514)
     draw_date_check(d, 964)
     ff = nr(8.5)
     d.text((14, 1002), FOOTER_L, font=ff, fill=INK)
